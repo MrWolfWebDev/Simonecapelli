@@ -1,0 +1,7 @@
+	#gacounter{font-size:0.7em;border:solid 1px black;width:120px;padding:2px;}
+	#gacounter .numero1{background: #FF9E5A;text-align:right;}
+	#gacounter .numero2{background: #EEE;text-align:right;}
+	#gacounter #visits{float:left;width:60%;background: #FF9E5A;}
+	#gacounter #visitors{float:left;width:60%;background: #EEE;}
+	#gacounter #pv{float:left;width:60%;background: #FF9E5A;}
+	#gacounter #credits a{color:#2990EE; font-size:0.7em;}
