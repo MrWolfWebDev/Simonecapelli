@@ -3,7 +3,7 @@ session_start();
 if ($_SESSION['auth'] == 1):
     ?>
 
-    <?php
+<?php 
     //Dati accesso db
     include('../php/db_account.php');
 //effettuo l'inserimento sul database
@@ -13,7 +13,7 @@ if ($_SESSION['auth'] == 1):
     $result = mysql_query($query) or die(mysql_error());
     $lastRow = mysql_fetch_assoc($result);
     $lastPath = $lastRow['ImagePath'];
-    ?>
+?>
 
     <!DOCTYPE html>
     <html>
@@ -35,17 +35,13 @@ if ($_SESSION['auth'] == 1):
     </html>
 
     <?php
+
     if (isset($_POST['submit'])) {
         header("Location:index.php");
     }
-    if (isset($_POST['acw']) || isset($_POST['cw'])) {
-        if (isset($_POST['acw'])) {
-            $degrees = 90;
-        }
-        if (isset($_POST['cw'])) {
-            $degrees = 270;
-        }
 
+    if (isset($_POST['acw'])) {
+        $degrees = 90;
         $source = imagecreatefromjpeg($lastPath);
         $rotate = imagerotate($source, $degrees, 0);
         imagejpeg($rotate, $lastPath);
@@ -63,10 +59,29 @@ if ($_SESSION['auth'] == 1):
 
         header("Location:ruotaimmagine.php");
     }
-    
+
+    if (isset($_POST['cw'])) {
+        $degrees = 270;
+        $source = imagecreatefromjpeg($lastPath);
+        $rotate = imagerotate($source, $degrees, 0);
+        imagejpeg($rotate, $lastPath);
+
+// Rotate color image
+        $lastPathColor = substr($lastPath, 0, -4) . "-color.jpg";
+
+        $source = imagecreatefromjpeg($lastPathColor);
+        $rotate = imagerotate($source, $degrees, 0);
+        imagejpeg($rotate, $lastPathColor);
+
+// Free the memory
+        imagedestroy($source);
+        imagedestroy($rotate);
+
+        header("Location:ruotaimmagine.php");
+    }
     ?>
 
-    <?php
+<?php
 else:
     header("location:login.php");
 endif;

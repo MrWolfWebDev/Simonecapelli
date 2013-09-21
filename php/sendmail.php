@@ -1,6 +1,6 @@
 <?php
 
-	$to = "avalenza89@gmail.com";
+	$to = "simone-vtr@libero.it";
 	$subject = "[Richiesta informazioni]";
 	$message = filter_var($_POST['emailContent'], FILTER_SANITIZE_SPECIAL_CHARS);
 	$from = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);

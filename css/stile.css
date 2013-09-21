@@ -294,6 +294,8 @@ content #galleryatt {
     height: 100%;
     margin-left: 0.3%;
     opacity: 1 !important;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 #content #galleryatt div img {
     height: 96%;
@@ -333,6 +335,8 @@ content #gallerynews {
     height: 100%;
     margin-left: 0.3%;
     opacity: 1 !important;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 #content #gallerynews div img {
     height: 96%;
